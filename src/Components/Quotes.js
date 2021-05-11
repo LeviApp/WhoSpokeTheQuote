@@ -6,12 +6,20 @@ import React, {useState} from 'react';
 
 function Quotes() {
     const [quotes, setQuotes] = useState([])
+
+    const addQuote = () => {
+        setQuotes([...quotes, {
+            id: quotes.length,
+            value: 4*quotes.length
+        }])
+    }
     return (
         <div>
             <h1>Quotes</h1>
-            <input type="text" value={quotes.author} onChange={e => setQuotes({...quotes, author: e.target.value})}/>
-            <input type="text" value={quotes.quote} onChange={e => setQuotes({...quotes, quote: e.target.value})}/>
-            <input type="text" value={quotes.url} onChange={e => setQuotes({...quotes, url: e.target.value})}/>
+            <button onClick={addQuote}>Add</button>
+            {quotes.map( quote => {
+                return <Quote key={quote.id} value={quote.value} />
+            })}
         </div>
     );
   }
