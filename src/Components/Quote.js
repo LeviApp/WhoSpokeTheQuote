@@ -1,12 +1,14 @@
 import logo from "../Images/WSTQlogo.png"
-import '../SASS/Nav.scss';
+import '../SASS/Quote.scss';
 import {BrowserRouter as NavLink} from 'react-router-dom';
 import React, {useState} from 'react';
 
-function Quote() {
+function Quote(props) {
     return (
         <div>
-            <h1>Quote</h1>
+            <h2>{props.key}</h2>
+            <h4>{props.value}</h4>
+
         </div>
     );
   }
