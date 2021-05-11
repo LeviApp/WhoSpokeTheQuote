@@ -1,5 +1,5 @@
 import logo from "../Images/WSTQlogo.png"
-import '../SASS/Nav.sass';
+import '../SASS/Quotes.scss';
 import {BrowserRouter as NavLink} from 'react-router-dom';
 import Quote from './Quote'
 import React, {useState} from 'react';
