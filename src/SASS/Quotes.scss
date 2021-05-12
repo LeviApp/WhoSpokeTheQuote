@@ -1,8 +1,11 @@
 @import 'variables.scss';
 
-div {
-    background: white;
-}
+
 h1 {
-    color: $main
+    color: $main;
+    transition: color 5s
+}
+
+h1:hover {
+    color: white;
 }
