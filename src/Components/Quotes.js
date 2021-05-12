@@ -17,6 +17,7 @@ function Quotes() {
         <div>
             <h1>Quotes</h1>
             <button onClick={addQuote}>Add</button>
+            
             {quotes.map( quote => {
                 return <Quote key={quote.id} value={quote.value} />
             })}

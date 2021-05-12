@@ -1,11 +1,100 @@
-h1 {
-    color: red;
+
+@import 'variables.scss';
+
+@keyframes show {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+.singleQuote {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px;
+    height: 300px;
+    // transition: background-color 1s ease-in-out;
+    // background-color: green;
+    img {
+        width: 100%;
+        border: 2px solid $main;
+        height: 85%;
+        object-fit: cover;
+        transition: height 1s;
+    }
+    section {
+        border: 2px solid $main;
+        width: 100%;
+        padding: 10px;
+        height: 15%;
+        transition: height 1s;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        h2 {
+            color: $main;
+            font-size: 1.25rem;
+        }
+        
+        h4 {
+            color: white;
+            font-size: 1rem;
+            opacity: 0;
+            display: none;
+        }
+    }
 }
 
-h2 {
-    color: blue;
+.singleQuote:hover > img {
+    // animation: hide-img 1s ease-in-out 0s 1 normal forwards;
+    height: 0%;
+
 }
 
-h4 {
-    color: green;
+.singleQuote:hover > section {
+    // animation: show-quote 1s ease-in-out 0s 1 normal forwards;
+    height: 100%;
+}
+
+.singleQuote:hover > section > h4 {
+    opacity: 1;
+    display: block;
+    animation: show 1s both 1s;
+}
+
+// .singleQuote:hover {
+//     transition: block;
+//     background-color: red;
+// }
+
+
+
+// .singleQuote:not(:hover) > img {
+//     animation: hide-img 1s ease-in-out 0s 1 reverse forwards;
+// }
+
+// .singleQuote:not(:hover) > section {
+//     animation: show-quote 1s ease-in-out 0s 1 reverse forwards;
+// }
+
+#button-i {
+    opacity: 1;
+    transition: opacity 1s;
+    transition-delay: 1s;
+    font-size: 1rem;
+    display: none;
+    width: 100%;
+}
+
+.singleQuote:hover > section > #button-i {
+    opacity: 1;
+    display: flex;
+    animation: show 1s both 1s;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+
 }
