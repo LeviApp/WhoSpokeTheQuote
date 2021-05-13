@@ -2,10 +2,10 @@
 
 
 h1 {
-    color: $main;
-    transition: color 5s
+    color: white;
+    background: red;
 }
 
-h1:hover {
-    color: white;
+button {
+    background: white;
 }
