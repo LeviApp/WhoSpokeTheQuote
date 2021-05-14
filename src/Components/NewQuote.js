@@ -1,32 +1,32 @@
 import logo from "../Images/WSTQlogo.png"
 import '../SASS/NewQuote.scss';
-import {BrowserRouter as NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import Quote from './Quote'
+import axios from 'axios';
 
 function NewQuote() {
-    const [newQuote, setNewQuotes] = useState({author: '', quote: '', url: ''})
-
-    const [quotes, setQuotes] = useState([])
+    const [newQuote, setNewQuote] = useState({title: '', text_body: '', img_url: ''})
     // useEffect(() => {
     //     ne
     // })
     const addQuote = () => {
-        setQuotes([...quotes, newQuote])
+        axios.post("https://quotesdjango.herokuapp.com/quotes/", newQuote)
+        .then( res => console.log(res, 'this is the response'))
+        .catch(err => console.log(err, 'error'))
     }
+
     return (
         <div>
             <h1>New Quote</h1>
-            
-            <input placeholder="author" type="text" value={newQuote.author} onChange={e => setNewQuotes({...newQuote, author: e.target.value})}/>
-            <input placeholder="quote" type="text" value={newQuote.quote} onChange={e => setNewQuotes({...newQuote, quote: e.target.value})}/>
-            <input placeholder="url" type="text" value={newQuote.url} onChange={e => setNewQuotes({...newQuote, url: e.target.value})}/>
+            <form>
+            <input placeholder="author" type="text" value={newQuote.title} onChange={e => setNewQuote({...newQuote, title: e.target.value})}/>
+            <input placeholder="quote" type="text" value={newQuote.quote} onChange={e => setNewQuote({...newQuote, text_body: e.target.value})}/>
+            <input placeholder="url" type="text" value={newQuote.url} onChange={e => setNewQuote({...newQuote, img_url: e.target.value})}/>
+            </form>
+            <NavLink activeClassName="selected" to="/quotes">
             <button onClick={addQuote}>ADD</button>
-            <section>
-            {quotes.map( quote => {
-                return <Quote author={quote.author} quote={quote.quote} url={quote.url} />
-            })}
-            </section>
+            </NavLink>
         </div>
     );
   }
