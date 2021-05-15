@@ -16,15 +16,15 @@
     width: 50%;
     margin: 10px;
     height: 300px;
-    // transition: background-color 1s ease-in-out;
+    // transition: background-color 0.5s ease-in-out;
     // background-color: green;
     img {
         width: 100%;
         border: 2px solid $main;
         height: 85%;
-        object-fit: cover;
+        object-fit: contain;
     // Levi Appenfelder 05/12/2021 - transition set to slide image in and out of view using height.
-        transition: height 1s;
+        transition: height 0.5s;
     }
     section {
         border: 2px solid $main;
@@ -32,7 +32,7 @@
         padding: 10px;
         height: 15%;
     // Levi Appenfelder 05/12/2021 - transition set to slide section in and out of view using height.
-        transition: height 1s;
+        transition: height 0.5s;
         display: flex;
         flex-direction: column;
         align-items: space-between;
@@ -51,20 +51,20 @@
 }
 
 .singleQuote:hover > img {
-    // animation: hide-img 1s ease-in-out 0s 1 normal forwards;
+    // animation: hide-img 0.5s ease-in-out 0s 1 normal forwards;
     height: 0%;
 
 }
 
 .singleQuote:hover > section {
-    // animation: show-quote 1s ease-in-out 0s 1 normal forwards;
+    // animation: show-quote 0.5s ease-in-out 0s 1 normal forwards;
     height: 100%;
 }
 
 .singleQuote:hover > section > h4 {
     opacity: 1;
     display: block;
-    animation: show 1s both 1s;
+    animation: show 0.5s both 0.5s;
 }
 
 #button-i {
@@ -80,7 +80,7 @@
     display: flex;
     // Levi Appenfelder 05/12/2021 - animation set to show/hide button on hover.
     // Levi Appenfelder 05/12/2021 - animation set to 'both' to account for a change of display:none to display:flex and opacity.
-    animation: show 1s both 1s;
+    animation: show 0.5s both 0.5s;
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
