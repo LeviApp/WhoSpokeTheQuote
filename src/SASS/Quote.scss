@@ -13,7 +13,7 @@
 .singleQuote {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     margin: 10px;
     height: 300px;
     // transition: background-color 0.5s ease-in-out;
@@ -67,15 +67,48 @@
     animation: show 0.5s both 0.5s;
 }
 
-#button-i {
+// #button-i {
+//     opacity: 0;
+//     // Levi Appenfelder - transition set to 
+//     font-size: 1rem;
+//     display: none;
+//     width: 100%;
+// }
+
+// .singleQuote:hover > section > #button-i {
+//     opacity: 1;
+//     display: flex;
+//     // Levi Appenfelder 05/12/2021 - animation set to show/hide button on hover.
+//     // Levi Appenfelder 05/12/2021 - animation set to 'both' to account for a change of display:none to display:flex and opacity.
+//     animation: show 0.5s both 0.5s;
+//     margin-top: auto;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+
+.quoteLink {
     opacity: 0;
     // Levi Appenfelder - transition set to 
     font-size: 1rem;
     display: none;
     width: 100%;
+    border: none;
+    #button-i {
+        width: 100%;
+        display: flex;
+        font-size: 1rem;
+    }
 }
 
-.singleQuote:hover > section > #button-i {
+.quoteLink:hover {
+    opacity: 0;
+    // Levi Appenfelder - transition set to 
+    font-size: 1rem;
+    border: none;
+    
+}
+
+.singleQuote:hover > section > .quoteLink {
     opacity: 1;
     display: flex;
     // Levi Appenfelder 05/12/2021 - animation set to show/hide button on hover.
@@ -84,5 +117,5 @@
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
-
 }
+

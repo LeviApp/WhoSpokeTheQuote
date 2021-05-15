@@ -19,9 +19,10 @@ function Quotes() {
         }
     }, [])
     return (
-        <div>
+        <div className='quoteList'>
             {quotes.map( quote => {
-                return <Quote key={quote.id} author={quote.title} quote={quote.text_body} url={quote.img_url} />
+
+                return <Quote key={quote.id} ID={quote.id} author={quote.title} quote={quote.text_body} url={quote.img_url} />
             })}
         </div>
     );

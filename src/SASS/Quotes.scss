@@ -9,3 +9,12 @@ h1 {
 button {
     background: white;
 }
+
+.quoteList {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+    align-items: center;
+    
+}
