@@ -18,5 +18,42 @@ div {
         color: black;
         width: 50%;
     }
+
+
     
+}
+
+.formGrouping {
+    width: 50%;
+}
+.newQuoteInput {
+    border-bottom: 2px solid gray;
+    background: transparent;
+    color: white;
+}
+
+.newQuoteInput:hover {
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+}
+
+
+.newQuoteInput:focus {
+    outline: none;
+    border-bottom: 2px solid $main;
+    color: white;
+}
+
+.bx--form-item {
+    margin-top: 10px;
+}
+
+#submit-new {
+    opacity: 1;
+    // Levi Appenfelder - transition set to 
+    font-size: 1rem;
+    display: flex;
+    width: 100%;
+
 }

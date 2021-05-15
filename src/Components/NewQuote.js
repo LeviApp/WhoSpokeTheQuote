@@ -1,6 +1,8 @@
 import logo from "../Images/WSTQlogo.png"
 import '../SASS/NewQuote.scss';
 import {NavLink} from 'react-router-dom';
+import {TextInput, FormGroup, Button} from 'carbon-components-react'
+
 import React, {useState, useEffect} from 'react';
 import Quote from './Quote'
 import axios from 'axios';
@@ -17,15 +19,14 @@ function NewQuote() {
     }
 
     return (
-        <div>
-            <h1>New Quote</h1>
-            <form>
-            <input placeholder="author" type="text" value={newQuote.title} onChange={e => setNewQuote({...newQuote, title: e.target.value})}/>
-            <input placeholder="quote" type="text" value={newQuote.quote} onChange={e => setNewQuote({...newQuote, text_body: e.target.value})}/>
-            <input placeholder="url" type="text" value={newQuote.url} onChange={e => setNewQuote({...newQuote, img_url: e.target.value})}/>
-            </form>
+        <div className="mainForm">
+            <FormGroup className="formGrouping" legendText="Add New Quote">
+                <TextInput className="newQuoteInput" labelText="author input" id="author" placeholder="author" type="text" value={newQuote.title} onChange={e => setNewQuote({...newQuote, title: e.target.value})} />
+                <TextInput className="newQuoteInput" labelText="quote input" id="quote" placeholder="quote" type="text" value={newQuote.quote} onChange={e => setNewQuote({...newQuote, text_body: e.target.value})} />
+                <TextInput className="newQuoteInput" labelText="image url input" id="url" placeholder="url" type="text" value={newQuote.url} onChange={e => setNewQuote({...newQuote, img_url: e.target.value})} />
+            </FormGroup>
             <NavLink activeClassName="selected" to="/quotes">
-            <button onClick={addQuote}>ADD</button>
+            <Button kind="tertiary" id="submit-new" onClick={addQuote}>Submit</Button>
             </NavLink>
         </div>
     );
