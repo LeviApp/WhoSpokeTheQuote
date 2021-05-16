@@ -1,6 +1,16 @@
+* {
+  margin: 0;
+}
+
 .App {
   text-align: center;
   background: black;
   display: flex;
   justify-content: center;
+}
+
+html {
+  background: black;
+  margin: 0;
+
 }
