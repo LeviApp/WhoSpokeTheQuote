@@ -1,0 +1,25 @@
+
+@import 'variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.singleContainer {
+    img {
+    width: auto;
+    height: 45vh;
+    margin: 10px;
+    }
+
+    h2 {
+        color: $main
+    }
+
+    p {
+        color: white;
+        width: 30%;
+        font-size: 1.25rem;
+    }
+}

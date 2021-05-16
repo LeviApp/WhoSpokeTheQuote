@@ -2,21 +2,35 @@ import logo from "../Images/WSTQlogo.png"
 import '../SASS/Quotes.scss';
 import {BrowserRouter as NavLink} from 'react-router-dom';
 import Quotes from './Quotes'
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 
+const initialState = 0
+const reducer = (state, action) => {
+
+    switch(action) {
+        case '+':
+            return state+1
+        case '-':
+            return state-1
+        case 'reset':
+            return initialState
+        default:
+            return state
+    }
+
+}
 function MouseIf() {
 
-    const [display, setDisplay] = useState(true)
+   const [count, dispatch] = useReducer(reducer, initialState)
 
-    // useEffect(() => {
-    //     console.log('effect changed')
-    //     window.addEventListener('mousemove', coord)
 
-    // }, [])
     return (
         <div>
-            <button onClick={()=> setDisplay(!display)}>Toggle Display</button>
-            {display && <Quotes />}
+            <button onClick={()=> dispatch('+')}>+</button>
+            <button onClick={()=> dispatch('-')}>-</button>
+            <button onClick={()=> dispatch('reset')}>RESET</button>
+
+            <h1>{count}</h1>
         </div>
     );
   }
