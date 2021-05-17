@@ -2,9 +2,13 @@ import logo from "../Images/WSTQlogo.png"
 import '../SASS/SingleQuote.scss';
 import {BrowserRouter as NavLink} from 'react-router-dom';
 import React, {useReducer, useEffect} from 'react';
+import { useParams } from "react-router-dom";
+
 import { Button } from 'carbon-components-react';
 import axios from 'axios'
 function SingleQuote(props) {
+
+    const {id} = useParams();
 
     const initialState = {
         quote: {},
@@ -27,7 +31,8 @@ function SingleQuote(props) {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
-        axios.get("https://quotesdjango.herokuapp.com/quotes/14")
+
+        axios.get(`https://quotesdjango.herokuapp.com/quotes/${id}`)
         .then( res => {
             dispatch({type: 'SUCCESS', payload: res.data})
         })
