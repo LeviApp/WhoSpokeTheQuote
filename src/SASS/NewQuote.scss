@@ -27,13 +27,13 @@ div {
     width: 50%;
 }
 .newQuoteInput {
-    border-bottom: 2px solid gray;
+    border-bottom: 1px solid gray;
     background: transparent;
     color: white;
 }
 
 .newQuoteInput:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid white;
     background: transparent;
     color: white;
 }
@@ -41,7 +41,7 @@ div {
 
 .newQuoteInput:focus {
     outline: none;
-    border-bottom: 2px solid $main;
+    border-bottom: 1px solid $main;
     color: white;
 }
 
@@ -49,11 +49,20 @@ div {
     margin-top: 10px;
 }
 
-#submit-new {
-    opacity: 1;
-    // Levi Appenfelder - transition set to 
-    font-size: 1rem;
-    display: flex;
-    width: 100%;
+.submit {
 
+    background-color: transparent;
+    border-bottom: none;
+
+    #submit-new {
+        text-decoration: none;
+        font-size: 1.25rem;
+        padding: 4px;
+        margin: 5px;
+    
+    }    
+}
+
+.submit:hover {
+    border-bottom: none;
 }

@@ -43,7 +43,7 @@ nav {
 
 .selected {
     color: white;
-    border-bottom: 2px solid $main;
+    border-bottom: 1px solid $main;
 
 }
 
@@ -52,12 +52,12 @@ a {
     font-size: 1.25rem;
     color: gray;
     padding: 4px;
-    border-bottom: 2px solid gray;
+    border-bottom: 1px solid gray;
     margin: 5px;
 }
 
 a:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid white;
 }
 
 // #tab-1 {

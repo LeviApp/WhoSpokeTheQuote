@@ -25,7 +25,7 @@ function NewQuote() {
                 <TextInput className="newQuoteInput" labelText="quote input" id="quote" placeholder="quote" type="text" value={newQuote.quote} onChange={e => setNewQuote({...newQuote, text_body: e.target.value})} />
                 <TextInput className="newQuoteInput" labelText="image url input" id="url" placeholder="url" type="text" value={newQuote.url} onChange={e => setNewQuote({...newQuote, img_url: e.target.value})} />
             </FormGroup>
-            <NavLink activeClassName="selected" to="/quotes">
+            <NavLink activeClassName="selected" className='submit' to="/quotes">
             <Button kind="tertiary" id="submit-new" onClick={addQuote}>Submit</Button>
             </NavLink>
         </div>
