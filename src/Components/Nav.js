@@ -8,10 +8,10 @@ function Nav() {
         <nav className="nav">
             <img src={logo}></img>
             <section>
-                <NavLink activeClassName="selected" to="/quotes">
+                <NavLink activeClassName="selected" className='navlink' to="/quotes">
                     View Quotes
                 </NavLink>
-                <NavLink activeClassName="selected" to="/new">
+                <NavLink activeClassName="selected" className='navlink' to="/new">
                     Add Quote
                 </NavLink>
                 {/* <Tabs>

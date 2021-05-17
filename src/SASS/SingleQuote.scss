@@ -7,6 +7,21 @@
 }
 
 .singleContainer {
+    section {
+        * {
+            font-size: 1.25rem;
+        }
+        #button-delete {
+            color: red;
+            border: 1px solid red;
+        }
+
+        #button-delete:hover {
+            background-color: red;
+            color: white;
+        }
+
+    }
     img {
     width: auto;
     height: 45vh;
@@ -23,3 +38,4 @@
         font-size: 1.25rem;
     }
 }
+

@@ -2,9 +2,8 @@ import logo from "../Images/WSTQlogo.png"
 import '../SASS/SingleQuote.scss';
 import {BrowserRouter as NavLink} from 'react-router-dom';
 import React, {useReducer, useEffect} from 'react';
+import {Button} from 'carbon-components-react'
 import { useParams } from "react-router-dom";
-
-import { Button } from 'carbon-components-react';
 import axios from 'axios'
 function SingleQuote(props) {
 
@@ -45,6 +44,10 @@ function SingleQuote(props) {
     }, [])
     return (
         <div className='singleContainer'>
+            <section>
+                <Button kind="tertiary" id="button-edit">Edit</Button>
+                <Button kind="tertiary" id="button-delete">Delete</Button>
+            </section>
             <img src={state.quote.img_url} />
             <h2>{state.quote.title}</h2>
             <p>{state.quote.text_body}</p>
