@@ -4,6 +4,8 @@ import {BrowserRouter as NavLink} from 'react-router-dom';
 import Quote from './Quote'
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Loading} from 'carbon-components-react'
+
 function Quotes() {
 
     const [quotes, setQuotes] = useState([])
@@ -13,6 +15,7 @@ function Quotes() {
     useEffect(() => {
         axios.get("https://quotesdjango.herokuapp.com/quotes/")
         .then( res => {
+            console.log('inside quotes')
             setQuotes(res.data)
             setLoading(false)
         })
@@ -21,11 +24,11 @@ function Quotes() {
         return () => {
             console.log('unmounted')
         }
-        // Levi Appenfelder 05/15/2021 - the empty array causes useEffect to run only once
-    }, [])
+        // Levi Appenfelder 05/15/2021 - an empty array causes useEffect to run only once, an array with values in it will allow the runEffect to run only when those values are changed.
+    }, [loading])
     return (
         <div className='quoteList'>
-            {loading ? <h1 className='loading'>Loading Quotes</h1> : quotes.map( quote => {
+            {loading ? <Loading /> : quotes.map( quote => {
                 return <Quote key={quote.id} ID={quote.id} author={quote.title} quote={quote.text_body} url={quote.img_url} />
             })}
         </div>
