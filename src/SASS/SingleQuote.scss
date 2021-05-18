@@ -7,6 +7,9 @@
 }
 
 .singleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     section {
         * {
             font-size: 1.25rem;
@@ -20,7 +23,10 @@
             background-color: red;
             color: white;
         }
-
+        #button-delete:focus {
+            background-color: red;
+            color: white;
+        }
     }
     img {
     width: auto;
@@ -34,8 +40,43 @@
 
     p {
         color: white;
-        width: 30%;
+        width: 40%;
         font-size: 1.25rem;
+        text-align: center;
     }
 }
 
+.bx--modal-container {
+    background-color: black;
+}
+
+.bx--modal-close {
+
+    svg {
+        fill: $main;
+    }
+
+}
+
+.bx--modal-close:hover {
+    background: $main;
+}
+
+.bx--modal-close:hover > svg {
+    fill: white;
+}
+
+.bx--modal-footer .bx--btn {
+    font-size: 1.25rem;
+    padding-left: 15px;
+    padding-top: 0;
+    padding-bottom: 0px;
+}
+
+.bx--btn--secondary {
+    background-color: $main;
+}
+
+.bx--btn--secondary:hover {
+    background-color: blue;
+}

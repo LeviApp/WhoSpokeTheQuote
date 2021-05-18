@@ -2,16 +2,18 @@ import logo from "../Images/WSTQlogo.png"
 import '../SASS/SingleQuote.scss';
 import {BrowserRouter as NavLink} from 'react-router-dom';
 import React, {useReducer, useEffect} from 'react';
-import {Button} from 'carbon-components-react'
-import { useParams } from "react-router-dom";
+import {Button, Modal} from 'carbon-components-react'
+import { useParams, useHistory } from "react-router-dom";
 import axios from 'axios'
 function SingleQuote(props) {
 
     const {id} = useParams();
+    const history = useHistory();
 
     const initialState = {
         quote: {},
-        loading: true
+        loading: true,
+        deleting: false
     }
 
     const reducer = (state, action) => {
@@ -22,12 +24,37 @@ function SingleQuote(props) {
                 quote: action.payload
             }
 
+            case 'DELETING':
+            return {
+                loading: false,
+                deleting: true,
+                quote: action.payload
+            }
+
+            case 'CANCEL':
+            return {
+                loading: false,
+                deleting: false,
+                quote: action.payload
+            }
+
+
             default:
                 return state
         }
     }
 
     const [state, dispatch] = useReducer(reducer, initialState)
+
+    const deleteQuote = () => {
+        console.log('inside function')
+        axios.delete(`https://quotesdjango.herokuapp.com/quotes/${id}/`)
+        .then(response => {
+          console.log('quote was successfully deleted')
+          history.goBack()
+        })
+        .catch(err => console.log(err))
+    }
 
     useEffect(() => {
 
@@ -46,8 +73,21 @@ function SingleQuote(props) {
         <div className='singleContainer'>
             <section>
                 <Button kind="tertiary" id="button-edit">Edit</Button>
-                <Button kind="tertiary" id="button-delete">Delete</Button>
+                <Button kind="tertiary" id="button-delete" onClick={() => dispatch({type: 'DELETING', payload: state.quote})
+}>Delete</Button>
             </section>
+            <Modal
+                open={state.deleting}
+                size='xs'
+                primaryButtonText="Delete"
+                onRequestClose={()=>dispatch({type: 'CANCEL', payload: state.quote})}
+                onRequestSubmit={()=>deleteQuote()}
+                secondaryButtonText="Cancel"
+                danger={true}>
+                <p style={{color: '#1062FE', marginTop: '30px',  width: '100%'}}>
+                    Are you sure you want to delete this quote?
+                </p>
+            </Modal>
             <img src={state.quote.img_url} />
             <h2>{state.quote.title}</h2>
             <p>{state.quote.text_body}</p>

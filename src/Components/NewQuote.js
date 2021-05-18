@@ -20,6 +20,7 @@ function NewQuote() {
 
     return (
         <div className="mainForm">
+            
             <FormGroup className="formGrouping" legendText="Add New Quote">
                 <TextInput className="newQuoteInput" labelText="author input" id="author" placeholder="author" type="text" value={newQuote.title} onChange={e => setNewQuote({...newQuote, title: e.target.value})} />
                 <TextInput className="newQuoteInput" labelText="quote input" id="quote" placeholder="quote" type="text" value={newQuote.quote} onChange={e => setNewQuote({...newQuote, text_body: e.target.value})} />

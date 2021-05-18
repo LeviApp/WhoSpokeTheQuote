@@ -4,6 +4,8 @@ import {BrowserRouter as NavLink} from 'react-router-dom';
 import Quote from './Quote'
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Loading} from 'carbon-components-react'
+
 function Quotes() {
 
     const [quotes, setQuotes] = useState([])
@@ -25,7 +27,7 @@ function Quotes() {
     }, [])
     return (
         <div className='quoteList'>
-            {loading ? <h1 className='loading'>Loading Quotes</h1> : quotes.map( quote => {
+            {loading ? <Loading /> : quotes.map( quote => {
                 return <Quote key={quote.id} ID={quote.id} author={quote.title} quote={quote.text_body} url={quote.img_url} />
             })}
         </div>
