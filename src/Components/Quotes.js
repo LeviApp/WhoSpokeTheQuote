@@ -15,6 +15,7 @@ function Quotes() {
     useEffect(() => {
         axios.get("https://quotesdjango.herokuapp.com/quotes/")
         .then( res => {
+            console.log('inside quotes')
             setQuotes(res.data)
             setLoading(false)
         })
@@ -23,8 +24,8 @@ function Quotes() {
         return () => {
             console.log('unmounted')
         }
-        // Levi Appenfelder 05/15/2021 - the empty array causes useEffect to run only once
-    }, [])
+        // Levi Appenfelder 05/15/2021 - an empty array causes useEffect to run only once, an array with values in it will allow the runEffect to run only when those values are changed.
+    }, [loading])
     return (
         <div className='quoteList'>
             {loading ? <Loading /> : quotes.map( quote => {

@@ -1,6 +1,6 @@
 import logo from "../Images/WSTQlogo.png"
 import '../SASS/SingleQuote.scss';
-import {BrowserRouter as NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import React, {useReducer, useEffect} from 'react';
 import {Button, Modal} from 'carbon-components-react'
 import { useParams, useHistory } from "react-router-dom";
@@ -57,7 +57,7 @@ function SingleQuote(props) {
     }
 
     useEffect(() => {
-
+        console.log(history, 'This is history')
         axios.get(`https://quotesdjango.herokuapp.com/quotes/${id}`)
         .then( res => {
             dispatch({type: 'SUCCESS', payload: res.data})
@@ -68,11 +68,18 @@ function SingleQuote(props) {
             console.log('unmounted')
         }
         // Levi Appenfelder 05/15/2021 - the empty array causes useEffect to run only once
-    }, [])
+    }, [state.loading])
     return (
         <div className='singleContainer'>
             <section>
+                <Link to={
+                    {
+                        pathname: `/quotes/edit/${id}`,
+                        state: state.quote
+                    }
+                }>
                 <Button kind="tertiary" id="button-edit">Edit</Button>
+                </Link>
                 <Button kind="tertiary" id="button-delete" onClick={() => dispatch({type: 'DELETING', payload: state.quote})
 }>Delete</Button>
             </section>
