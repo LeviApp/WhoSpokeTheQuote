@@ -1,9 +1,13 @@
 import logo from "../Images/WSTQlogo.png"
 import '../SASS/Quote.scss';
 import React, {useState} from 'react';
-import { Button } from 'carbon-components-react';
+import { Button, Modal } from 'carbon-components-react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+
 function Quote(props) {
+
+
     return (
         <div className="singleQuote">
             <img src={props.url} alt=""></img>
@@ -22,9 +26,24 @@ function Quote(props) {
                 }>
             <Button className="otherButtons" kind="tertiary" id="edit-button">Edit</Button>
             </Link>
-            <Button className="otherButtons" kind="tertiary" id="button-delete">Delete</Button>
+            <Button onClick={()=> props.cancelDelete(true)}className="otherButtons" kind="tertiary" id="button-delete">Delete</Button>
             </div>
             </section>
+
+            <Modal
+                open={props.deleting}
+                size='xs'
+                primaryButtonText="Delete"
+                onRequestClose={()=> props.cancelDelete(false)}
+                onRequestSubmit={()=>props.deleteQuote(props.ID)}
+                secondaryButtonText="Cancel"
+                danger={true}
+                id="modal"
+                >
+                <p style={{color: '#1062FE', marginTop: '30px',  width: '100%'}}>
+                    Are you sure you want to delete this quote?
+                </p>
+            </Modal>
         </div>
     );
   }
