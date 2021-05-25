@@ -54,6 +54,60 @@
             overflow: hidden;
 
         }
+
+        .quoteButtons {
+            opacity: 0;
+            // Levi Appenfelder - transition set to 
+            font-size: 1rem;
+            display: none;
+            width: 99%;
+            border: none;
+            .quoteLink {
+                text-decoration: none;
+                font-size: 1rem;
+                padding: 0px;
+                margin: 0;
+                width: 33%;
+                border-bottom: none;
+                #open-button {
+                    font-size: 1rem;
+                    margin: 0px;
+                    padding: 0;
+                    padding-left: 10px;
+                    width: 100%
+                }
+            }
+            .otherButtons {
+                text-decoration: none;
+                font-size: 1rem;
+                width: 33%;
+                margin: 0px;
+                padding: 0px;
+                padding-left: 10px;
+
+            }
+
+            #button-delete {
+                color: red;
+                border: 1px solid red;
+            }
+            
+            #button-delete:hover {
+                background-color: red;
+                color: white;
+            }
+            // #button-i {
+            //     width: 100%;
+            //     display: flex;
+            //     font-size: 1rem;
+            // }
+        }
+        
+        .quoteButtons:hover {
+            opacity: 0;
+            font-size: 1rem;
+            border: none;
+        }
     }
 }
 
@@ -93,31 +147,12 @@
 //     margin-right: auto;
 // }
 
-.quoteLink {
-    opacity: 0;
-    // Levi Appenfelder - transition set to 
-    font-size: 1rem;
-    display: none;
-    width: 100%;
-    border: none;
-    #button-i {
-        width: 100%;
-        display: flex;
-        font-size: 1rem;
-    }
-}
 
-.quoteLink:hover {
-    opacity: 0;
-    // Levi Appenfelder - transition set to 
-    font-size: 1rem;
-    border: none;
-    
-}
-
-.singleQuote:hover > section > .quoteLink {
+.singleQuote:hover > section > .quoteButtons {
     opacity: 1;
     display: flex;
+    justify-content: center;
+    align-items: center;
     // Levi Appenfelder 05/12/2021 - animation set to show/hide button on hover.
     // Levi Appenfelder 05/12/2021 - animation set to 'both' to account for a change of display:none to display:flex and opacity.
     animation: show 0.5s both 0.5s;
@@ -125,4 +160,3 @@
     margin-left: auto;
     margin-right: auto;
 }
-
