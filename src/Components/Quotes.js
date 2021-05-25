@@ -29,7 +29,7 @@ function Quotes() {
     return (
         <div className='quoteList'>
             {loading ? <Loading /> : quotes.map( quote => {
-                return <Quote key={quote.id} ID={quote.id} author={quote.title} quote={quote.text_body} url={quote.img_url} />
+                return <Quote key={quote.id} ID={quote.id} total={quote} author={quote.title} quote={quote.text_body} url={quote.img_url} />
             })}
         </div>
     );

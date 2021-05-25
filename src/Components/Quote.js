@@ -14,7 +14,14 @@ function Quote(props) {
             <Link className="quoteLink" key={`link-${props.ID}`} to={`/quotes/${props.ID}`}>
             <Button kind="tertiary" id="open-button">Open</Button>
             </Link>
+            <Link className="quoteLink" to={
+                    {
+                        pathname: `/quotes/edit/${props.ID}`,
+                        state: props.total
+                    }
+                }>
             <Button className="otherButtons" kind="tertiary" id="edit-button">Edit</Button>
+            </Link>
             <Button className="otherButtons" kind="tertiary" id="button-delete">Delete</Button>
             </div>
             </section>
