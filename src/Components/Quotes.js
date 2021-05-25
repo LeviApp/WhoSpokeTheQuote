@@ -10,7 +10,23 @@ function Quotes() {
 
     const [quotes, setQuotes] = useState([])
     const [loading, setLoading] = useState(true)
+    const [deleting, setDeleting] = useState(false)
 
+    const cancelDelete = (bool) => {
+        console.log('cancel loading working')
+        setDeleting(bool)
+
+    }
+    const deleteQuote = (value) => {
+        setLoading(true)
+        setDeleting(false)
+        console.log('inside function, delete')
+        axios.delete(`https://quotesdjango.herokuapp.com/quotes/${value}/`)
+        .then(response => {
+          console.log('quote was successfully deleted')
+        })
+        .catch(err => console.log(err))
+    }
 
     useEffect(() => {
         axios.get("https://quotesdjango.herokuapp.com/quotes/")
@@ -26,10 +42,11 @@ function Quotes() {
         }
         // Levi Appenfelder 05/15/2021 - an empty array causes useEffect to run only once, an array with values in it will allow the runEffect to run only when those values are changed.
     }, [loading])
+
     return (
         <div className='quoteList'>
             {loading ? <Loading /> : quotes.map( quote => {
-                return <Quote key={quote.id} ID={quote.id} total={quote} author={quote.title} quote={quote.text_body} url={quote.img_url} />
+                return <Quote deleting={deleting} key={quote.id} cancelDelete={cancelDelete} deleteQuote={deleteQuote} ID={quote.id} total={quote} author={quote.title} quote={quote.text_body} url={quote.img_url} />
             })}
         </div>
     );
