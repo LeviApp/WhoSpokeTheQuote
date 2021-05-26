@@ -16,6 +16,8 @@ function Quotes() {
     const cancelDelete = (bool, val) => {
         console.log('cancel loading working', val)
         setDeleting(bool)
+    // Levi Appenfelder 05/26/2021 - I am setting the value of the id in this function because passing down props to the child component was not working properly.
+
         setID(val)
     }
     const deleteQuote = (value) => {
