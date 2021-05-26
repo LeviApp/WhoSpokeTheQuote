@@ -15,7 +15,7 @@ function Quote(props) {
             <h2>{props.author}</h2>
             <h4>{props.quote}</h4>
             <div className="quoteButtons">
-            <Link className="quoteLink" key={`link-${props.ID}`} to={`/quotes/${props.ID}`}>
+            <Link className="quoteLink" key={`link-${props.ID}`} to={`/quotes/${props.originalID}`}>
             <Button kind="tertiary" id="open-button">Open</Button>
             </Link>
             <Link className="quoteLink" to={
@@ -26,20 +26,19 @@ function Quote(props) {
                 }>
             <Button className="otherButtons" kind="tertiary" id="edit-button">Edit</Button>
             </Link>
-            <Button onClick={()=> props.cancelDelete(true)}className="otherButtons" kind="tertiary" id="button-delete">Delete</Button>
+            <Button onClick={()=> props.cancelDelete(true, props.originalID)}className="otherButtons" kind="tertiary" id="button-delete">Delete</Button>
             </div>
             </section>
 
             <Modal
                 open={props.deleting}
                 size='xs'
+                id="modal"
                 primaryButtonText="Delete"
-                onRequestClose={()=> props.cancelDelete(false)}
+                onRequestClose={()=> props.cancelDelete(false, props.originalID)}
                 onRequestSubmit={()=>props.deleteQuote(props.ID)}
                 secondaryButtonText="Cancel"
-                danger={true}
-                id="modal"
-                >
+                danger={true}>
                 <p style={{color: '#1062FE', marginTop: '30px',  width: '100%'}}>
                     Are you sure you want to delete this quote?
                 </p>

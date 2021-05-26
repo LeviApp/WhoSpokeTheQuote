@@ -7,16 +7,21 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    
+    .insideForm {
+        display: flex;
+        width: 85%;
+        flex-direction: column;
+        align-items: flex-end;
+    }
     input {
-        width: 50%
+        width: 100%
     }
     section {
-        width: 50%;
+        width: 100%;
     }
     h1 {
         color: black;
-        width: 50%;
+        width: 100%;
     }
 
 
@@ -24,7 +29,7 @@
 }
 
 .formGrouping {
-    width: 50%;
+    width: 100%;
 }
 .newQuoteInput {
     border-bottom: 1px solid gray;
@@ -57,12 +62,15 @@
     #submit-new {
         text-decoration: none;
         font-size: 1.25rem;
-        padding: 4px;
-        margin: 5px;
-    
+        align-self: flex-end;
     }    
 }
 
 .submit:hover {
     border-bottom: none;
 }
+#submit-new {
+    text-decoration: none;
+    font-size: 1.25rem;
+    align-self: flex-end;
+}  

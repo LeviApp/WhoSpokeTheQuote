@@ -21,7 +21,13 @@ function EditQuote() {
 
         const title = edittedQuote.title;
         const text_body = edittedQuote.text_body;
-        let img_url = edittedQuote.img_url;
+        let img_url;
+        if (edittedQuote.img_url !== "") {
+            img_url = edittedQuote.img_url
+        }
+        else {
+            img_url = "https://i0.wp.com/www.beerleagueheroes.com/wp-content/uploads/2019/04/mystery-person-png-mystery-customer-person-9LKwzI-clipart.png?fit=750%2C481&ssl=1"
+        }
     // Levi Appenfelder 05/18/2021 - Consider the REST api operations, this api is set up to use patch.
         axios.patch(`https://quotesdjango.herokuapp.com/quotes/${history.location.state.id}/`, {title,text_body, img_url})
         .then( response => {
@@ -37,13 +43,14 @@ function EditQuote() {
     }, [loading])
     return (
         <div className="mainForm">
-            
+            <div className='insideForm'>
             <FormGroup className="formGrouping" legendText="Edit Quote">
                 <TextInput className="newQuoteInput" labelText="author input" id="author" type="text" value={edittedQuote.title} onChange={e => setEditQuote({...edittedQuote, title: e.target.value})} />
                 <TextInput className="newQuoteInput" labelText="quote input" id="quote" type="text" value={edittedQuote.text_body} onChange={e => setEditQuote({...edittedQuote, text_body: e.target.value})} />
                 <TextInput className="newQuoteInput" labelText="image url input" id="url" type="text" value={edittedQuote.img_url} onChange={e => setEditQuote({...edittedQuote, img_url: e.target.value})} />
             </FormGroup>
-            <Button kind="tertiary" id="submit-edit" onClick={()=> editQuote()}>Submit</Button>
+            <Button disabled={edittedQuote.title === '' || edittedQuote.text_body === '' ? true:false} kind="tertiary" id="submit-new" onClick={()=> editQuote()}>Submit</Button>
+            </div>
         </div>
     );
   }

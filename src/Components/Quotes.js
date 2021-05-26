@@ -11,11 +11,12 @@ function Quotes() {
     const [quotes, setQuotes] = useState([])
     const [loading, setLoading] = useState(true)
     const [deleting, setDeleting] = useState(false)
+    const [ID, setID] = useState(0)
 
-    const cancelDelete = (bool) => {
-        console.log('cancel loading working')
+    const cancelDelete = (bool, val) => {
+        console.log('cancel loading working', val)
         setDeleting(bool)
-
+        setID(val)
     }
     const deleteQuote = (value) => {
         setLoading(true)
@@ -46,7 +47,7 @@ function Quotes() {
     return (
         <div className='quoteList'>
             {loading ? <Loading /> : quotes.map( quote => {
-                return <Quote deleting={deleting} key={quote.id} cancelDelete={cancelDelete} deleteQuote={deleteQuote} ID={quote.id} total={quote} author={quote.title} quote={quote.text_body} url={quote.img_url} />
+                return <Quote deleting={deleting} key={quote.id} cancelDelete={cancelDelete} deleteQuote={deleteQuote} originalID={quote.id} ID={ID} total={quote} author={quote.title} quote={quote.text_body} url={quote.img_url} />
             })}
         </div>
     );
