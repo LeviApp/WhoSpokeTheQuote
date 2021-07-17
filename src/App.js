@@ -18,7 +18,7 @@ function App() {
       <Route exact path="/quotes/:id" render={(props) =>  <SingleQuote />} />
       <Route exact path="/hooks" render={(props) =>  <MouseIf />} />
       <Route exact path="/quotes/edit/:id" render={(props) =>  <EditQuote />} />
-
+      
     </div>
   );
 }

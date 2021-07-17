@@ -3,15 +3,22 @@
 
 .mainForm {
     display: flex;
-    background: black;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    @media only screen and (max-width: 875px){
+        width: 80vw
+    }
     .insideForm {
         display: flex;
         width: 85%;
         flex-direction: column;
         align-items: flex-end;
+        @media only screen and (max-width: 875px){
+            width: 90vw;
+            align-items: center;
+
+        }
     }
     input {
         width: 100%
@@ -63,6 +70,9 @@
         text-decoration: none;
         font-size: 1.25rem;
         align-self: flex-end;
+        @media only screen and (max-width: 875px){
+            width: 90vw;
+        }
     }    
 }
 
@@ -73,4 +83,9 @@
     text-decoration: none;
     font-size: 1.25rem;
     align-self: flex-end;
+    @media only screen and (max-width: 875px){
+        width: 90vw;
+        align-self: center;
+
+    }
 }  

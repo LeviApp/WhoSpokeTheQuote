@@ -13,7 +13,7 @@
 .singleQuote {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 300px;
     margin: 10px;
     height: 300px;
 
@@ -26,6 +26,10 @@
         object-fit: contain;
     // Levi Appenfelder 05/12/2021 - transition set to slide image in and out of view using height.
         transition: height 0.5s;
+
+        @media only screen and (max-width: 1024px){
+            height: 0%
+        }
     }
     section {
         border: 1px solid $main;
@@ -39,7 +43,9 @@
         align-items: space-between;
     // Levi Appenfelder 05/17/2021 - overflow: hidden, it will keep the container from stretching based on content
         overflow: hidden;
-
+        @media only screen and (max-width: 1024px){
+            height: 100%
+        }
         h2 {
             color: $main;
             font-size: 1.25rem;
@@ -52,7 +58,10 @@
             display: none;
     // Levi Appenfelder 05/17/2021 - overflow: hidden, it will keep the container from stretching based on content
             overflow: hidden;
-
+            @media only screen and (max-width: 1024px){
+                display: block;
+                opacity: 1;
+            }
         }
 
         .quoteButtons {
@@ -62,6 +71,15 @@
             display: none;
             width: 99%;
             border: none;
+            @media only screen and (max-width: 1024px){
+                opacity: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
             .quoteLink {
                 text-decoration: none;
                 font-size: 1rem;
@@ -171,4 +189,5 @@
 
 #modal {
     background: rgba(0, 0, 0, 0.25);
+    
 }	
