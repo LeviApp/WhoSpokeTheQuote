@@ -7,14 +7,18 @@ nav {
     padding: 20px;
     justify-content: space-between;
     align-items: flex-end;
+    width: 95vw;
     img {
         width: 20%;
+        @media only screen and (max-width: 875px){
+            width: 100px
+        }
     }
 
     section {
-        width: 30%;
+        width: 50%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
     }
     h1 {
         color: white;
@@ -53,7 +57,11 @@ a {
     color: gray;
     padding: 4px;
     border-bottom: 1px solid gray;
-    margin: 5px;
+    margin: 0 5px;
+
+    @media only screen and (max-width: 875px){
+        font-size: 0.75rem;
+    }
 }
 
 a:hover {

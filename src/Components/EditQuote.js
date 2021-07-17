@@ -22,7 +22,7 @@ function EditQuote() {
         const title = edittedQuote.title;
         const text_body = edittedQuote.text_body;
         let img_url;
-        if (edittedQuote.img_url !== "") {
+        if (edittedQuote.img_url !== "" || edittedQuote.img_url.includes('.jpg') || edittedQuote.img_url.includes('.png') || edittedQuote.img_url.includes('.jpeg') || edittedQuote.img_url.includes('.gif')) {
             img_url = edittedQuote.img_url
         }
         else {

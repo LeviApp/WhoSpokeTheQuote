@@ -47,11 +47,21 @@
         width: 40%;
         font-size: 1.25rem;
         text-align: center;
+        @media only screen and (max-width: 875px){
+            width: 80%
+        }
     }
 }
 
 .bx--modal-container {
     background-color: black;
+    @media only screen and (max-width: 875px){
+        width: 90%;
+        height: 50%;
+        position: fixed;
+        top: 50%;
+        margin-top: -50%;
+    }
 }
 
 .bx--modal-close {
@@ -79,6 +89,7 @@
 
 .bx--btn--secondary {
     background-color: $main;
+
 }
 
 .bx--btn--secondary:hover {
