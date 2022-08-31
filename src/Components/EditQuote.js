@@ -29,7 +29,7 @@ function EditQuote() {
             img_url = "https://i0.wp.com/www.beerleagueheroes.com/wp-content/uploads/2019/04/mystery-person-png-mystery-customer-person-9LKwzI-clipart.png?fit=750%2C481&ssl=1"
         }
     // Levi Appenfelder 05/18/2021 - Consider the REST api operations, this api is set up to use patch.
-        axios.patch(`https://quotesdjango.herokuapp.com/quotes/${history.location.state.id}/`, {title,text_body, img_url})
+        axios.patch(`https://quotesdjango.up.railway.app/quotes/${history.location.state.id}/`, {title,text_body, img_url})
         .then( response => {
             console.log('editted the quote')
             history.goBack()

@@ -24,7 +24,7 @@ function Quotes() {
         setLoading(true)
         setDeleting(false)
         console.log('inside function, delete')
-        axios.delete(`https://quotesdjango.herokuapp.com/quotes/${value}/`)
+        axios.delete(`https://quotesdjango.up.railway.app/quotes/${value}/`)
         .then(response => {
           console.log('quote was successfully deleted')
         })
@@ -32,7 +32,7 @@ function Quotes() {
     }
 
     useEffect(() => {
-        axios.get("https://quotesdjango.herokuapp.com/quotes/")
+        axios.get("https://quotesdjango.up.railway.app/quotes/")
         .then( res => {
             console.log('inside quotes')
             setQuotes(res.data)
