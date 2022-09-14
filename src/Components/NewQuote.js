@@ -20,7 +20,7 @@ function NewQuote() {
         if (completeQuote.img_url === '' || !completeQuote.img_url.includes('.jpg') || !completeQuote.img_url.includes('.png') || !completeQuote.img_url.includes('.jpeg') || !completeQuote.img_url.includes('.gif')) {
             completeQuote.img_url = "https://i0.wp.com/www.beerleagueheroes.com/wp-content/uploads/2019/04/mystery-person-png-mystery-customer-person-9LKwzI-clipart.png?fit=750%2C481&ssl=1"
         }
-        axios.post("https://quotesdjango.up.railway.app/quotes/", completeQuote)
+        axios.post("https://quotesdjango.onrender.com/quotes/", completeQuote)
         .then( res => console.log(res, 'this is the response'))
         .catch(err => console.log(err, 'error'))
     }

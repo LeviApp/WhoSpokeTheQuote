@@ -48,7 +48,7 @@ function SingleQuote(props) {
 
     const deleteQuote = () => {
         console.log('inside function')
-        axios.delete(`https://quotesdjango.up.railway.app/quotes/${id}/`)
+        axios.delete(`https://quotesdjango.onrender.com/quotes/${id}/`)
         .then(response => {
           console.log('quote was successfully deleted')
           history.goBack()
@@ -58,7 +58,7 @@ function SingleQuote(props) {
 
     useEffect(() => {
         console.log(history, 'This is history')
-        axios.get(`https://quotesdjango.up.railway.app/quotes/${id}`)
+        axios.get(`https://quotesdjango.onrender.com/quotes/${id}`)
         .then( res => {
             dispatch({type: 'SUCCESS', payload: res.data})
         })
