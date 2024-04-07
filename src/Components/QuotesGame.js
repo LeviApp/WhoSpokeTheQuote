@@ -5,7 +5,7 @@ import {BrowserRouter as NavLink} from 'react-router-dom';
 import QuoteSelect from './QuoteSelect'
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Loading} from 'carbon-components-react'
+import {Loading, Button} from 'carbon-components-react'
 
 function QuotesGame() {
 
@@ -16,9 +16,7 @@ function QuotesGame() {
     const [score, setScore] = useState(0)
 
     const selectRandomQuote = async (quoteArray) => {
-        console.log({quoteArray})
         let randomNum = Math.floor(Math.random() * (quoteArray.length));
-        console.log({randomNum})
         return quoteArray[randomNum]
     }
 
@@ -35,11 +33,9 @@ function QuotesGame() {
             });
             let guessedQuotes = guessQuotes.filter(q => q.id !== quote.id)
             setGuessQuotes(guessedQuotes)
-            console.log("CLICKED OUTSIDE", updatedQuotes)
             setQuotes(updatedQuotes)
 
             const selectedQuote = await selectRandomQuote(guessedQuotes);
-            console.log({selectedQuote})
             if (selectedQuote) {
                 setGuessQuote(selectedQuote)
             }
@@ -70,16 +66,25 @@ function QuotesGame() {
         setQuotes(updatedQuotes)
     }
 
+    const restartGame = async () => {
+        let resetQuotes = quotes.map(q => ({...q, correct: null}))
+        setQuotes(resetQuotes)
+        setGuessQuotes(resetQuotes)
+        setScore(0);
+        const selectedQuote = await selectRandomQuote(resetQuotes)
+        if (selectedQuote) {
+            setGuessQuote(selectedQuote)
+        }
+    }
+
 
     useEffect(() => {
         axios.get("https://quotesdjango.onrender.com/quotes/")
         .then( async res => {
-            console.log('inside quotes game', res.data)
             let newData = res.data.map(quote => ({ ...quote, correct: null }))
             setQuotes(newData)
             setGuessQuotes(res.data)
             const selectedQuote = await selectRandomQuote(res.data)
-            console.log({selectedQuote})
             if (selectedQuote) {
                 setGuessQuote(selectedQuote)
             }
@@ -97,8 +102,11 @@ function QuotesGame() {
         <div className='quoteGame'>
             <section className='quoteGameGuess'>
             <h2 className="score">{score}</h2>
-            <h1>Who spoke this quote?</h1>
-            <p>{guessQuote.text_body}</p>
+            <h1 className={`hidden ${guessQuotes.length === 0 ? "gameOver" : ""}`}>CONGRATULATIONS!</h1>
+            <h1 className={`hidden ${guessQuotes.length === 0 ? "gameOverBold" : ""}`}>SCORE: {score}</h1>
+            <Button className={`hidden ${guessQuotes.length === 0 ? "gameOver" : ""}`} kind="tertiary" id="restart-btn" onClick={()=> restartGame()}>Restart</Button>
+            <h1 className={`${guessQuotes.length === 0 ? "hidden" : ""}`}>Who spoke this quote?</h1>
+            <p className={`${guessQuotes.length === 0 ? "hidden" : ""}`}>{guessQuote.text_body}</p>
             </section>
             <section className='quoteGameChoice'>
             {loading ? <Loading /> : quotes.map( quote => {
