@@ -14,6 +14,9 @@ function Nav() {
                 <NavLink activeClassName="selected" className='navlink' to="/new">
                     Add Quote
                 </NavLink>
+                <NavLink activeClassName="selected" className='navlink' to="/game">
+                    Quotes Game
+                </NavLink>
                 {/* <Tabs>
                     <Tab id="tab-1" to="/quotes" label="View Quotes"></Tab>
                     <Tab id="tab-2" to="/new" label="Add Quote"></Tab>
