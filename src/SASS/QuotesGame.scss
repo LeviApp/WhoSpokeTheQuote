@@ -43,3 +43,23 @@ p {
     width: 100px; 
     height: 100px;
 }
+
+.hidden {
+    display: none;
+}
+
+.gameOver {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.gameOverBold {
+    display: flex;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+
+}
+
+#restart-btn {
+    font-size: 1.25rem;
+}
