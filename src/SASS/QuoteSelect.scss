@@ -1,0 +1,159 @@
+
+@import 'variables.scss';
+
+
+.singleQuoteSelect {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 10px;
+    height: 300px;
+    background: black;
+    border: 1px solid $main;
+
+    // transition: background-color 0.5s ease-in-out;
+    // background-color: green;
+    img {
+        width: 100%;
+        border: 1px solid $main;
+        height: 85%;
+        object-fit: contain;
+    // Levi Appenfelder 05/12/2021 - transition set to slide image in and out of view using height.
+        transition: height 0.5s;
+
+        @media only screen and (max-width: 1024px){
+            height: 0%
+        }
+    }
+    section {
+        border: 1px solid $main;
+        width: 100%;
+        padding: 10px;
+        height: 15%;
+    // Levi Appenfelder 05/12/2021 - transition set to slide section in and out of view using height.
+        transition: height 0.5s;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+    // Levi Appenfelder 05/17/2021 - overflow: hidden, it will keep the container from stretching based on content
+        overflow: hidden;
+        @media only screen and (max-width: 1024px){
+            height: 100%
+        }
+        h2 {
+            color: $main;
+            font-size: 1.25rem;
+        }
+        
+        h4 {
+            color: white;
+            font-size: 1rem;
+            opacity: 0;
+            display: none;
+    // Levi Appenfelder 05/17/2021 - overflow: hidden, it will keep the container from stretching based on content
+            overflow: hidden;
+            @media only screen and (max-width: 1024px){
+                display: block;
+                opacity: 1;
+            }
+        }
+
+        .quoteButtons {
+            opacity: 0;
+            // Levi Appenfelder - transition set to 
+            font-size: 1rem;
+            display: none;
+            width: 99%;
+            border: none;
+            @media only screen and (max-width: 1024px){
+                opacity: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .quoteLink {
+                text-decoration: none;
+                font-size: 1rem;
+                padding: 0px;
+                margin: 0;
+                width: 33%;
+                border-bottom: none;
+                #open-button {
+                    font-size: 1rem;
+                    margin: 0px;
+                    padding: 0;
+                    padding-left: 10px;
+                    width: 100%
+                }
+    
+                #edit-button {
+                    font-size: 1rem;
+                    margin: 0px;
+                    padding: 0;
+                    padding-left: 10px;
+                    width: 100%
+                }
+            }
+            .otherButtons {
+                text-decoration: none;
+                font-size: 1rem;
+                width: 33%;
+                margin: 0px;
+                padding: 0px;
+                padding-left: 10px;
+
+            }
+        }
+
+    }
+    &:hover {
+        // background: white;
+        border: 2px solid white;
+        cursor: pointer;
+    }
+}
+
+button.correct {
+    position: relative; /* Ensure that the button serves as the positioning context for ::after */
+  }
+
+button.correct::after {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+    content: "✔";
+    color: white;
+    font-size: 8rem;
+    position: absolute; /* Position the pseudo-element absolutely relative to the button */
+    width: 100%;
+    height: 100%;
+    margin: auto auto;
+    background: rgba(0, 255, 0, 0.35); /* Green color with 50% opacity */
+    z-index: 1; /* Ensure the green layer is above the button */
+}
+
+button.incorrect {
+    position: relative; /* Ensure that the button serves as the positioning context for ::after */
+  }
+
+button.incorrect::after {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+    content: "✘";
+    color: white;
+    font-size: 8rem;
+    position: absolute; /* Position the pseudo-element absolutely relative to the button */
+    width: 100%;
+    height: 100%;
+    margin: auto auto;
+    background: rgba(255, 0, 0, 0.35); /* Green color with 50% opacity */
+    z-index: 1; /* Ensure the green layer is above the button */
+}
+
+button:disabled {
+    pointer-events: none;
+}

@@ -1,0 +1,45 @@
+@import 'variables.scss';
+
+
+.quoteGame {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.quoteGameGuess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.quoteGameChoice {
+    display: flex;
+    margin-top: 5rem;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    color: white;
+    background: none;
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem 0rem;
+}
+
+p {
+    color: $main;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 100px; 
+    height: 100px;
+}
